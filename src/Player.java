@@ -113,7 +113,13 @@ public class Player {
        niveles=(int)monedas/1000;
        return niveles;
    }
-//    private boolean canIBuyLevels(float l){}
+   private boolean canIBuyLevels(int l){
+       if(getLevels()==4){
+           return false;
+       }else{
+           return true;
+       }
+   }
     
     
     public void applyPrize(Prize p){}
@@ -132,10 +138,51 @@ public class Player {
         }
     }
 //    public boolean initTreasures(){}
-//    public boolean hasVisibleTreasures(){}
+    public boolean hasVisibleTreasures(){
+        if(this.visibleTreasures.size()>0){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public int getLevels(){
-        return level;
-    }            
+        int nivel=0;
+        boolean collar=false;
+        for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
+            if(visibleTreasures.get( i ).getType()==TreasureKind.necklace){
+                collar=true;
+            }
+        }
+         for( int i = 0 ; i < this.hiddenTreasures.size() ; i++ ){
+            if(this.hiddenTreasures.get( i ).getType()==TreasureKind.necklace){
+                collar=true;
+            }
+        }
+         if(collar){
+            for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
+                nivel+=visibleTreasures.get( i ).getMaxBonus();
+            }
+         }else{
+            for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
+                nivel+=visibleTreasures.get( i ).getMaxBonus();
+            }
+         }
+         nivel+=this.level;
+        return nivel;
+    }       
+    
+
+
+public int howManyVisibleTreasures(TreasureKind tKind){
+    int tesoros=0;
+    for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
+            if(visibleTreasures.get( i ).getType()==tKind){
+                tesoros++;
+            }
+        }
+    return tesoros;
+}
+
 }
     
 
