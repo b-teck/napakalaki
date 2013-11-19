@@ -52,8 +52,12 @@ public class Player {
     }
 
     
-  //  public ArrayList<Treasure> getHiddenTreasures(){}
-//    public ArrayList<Treasure> getVisibleTreasures(){}
+    public ArrayList<Treasure> getHiddenTreasures(){
+        return this.hiddenTreasures;
+    }
+    public ArrayList<Treasure> getVisibleTreasures(){
+        return this.visibleTreasures;
+    }
     
     
     private void bringToLive(){
@@ -82,11 +86,29 @@ public class Player {
         }
     }
 
-    private void setPendingBadStuff(BadStuff b){}
-    private void die(){}
+    private void setPendingBadStuff(BadStuff b){
+        this.pendingBadStuff=b;
+    }
     
-    private void dieIfNoTreasures(){}
-//    private int computeGoldCoinsValue(ArrayList<Treasure> t){}
+    private void die(){
+        this.dead=true;
+    }
+    
+    private void dieIfNoTreasures(){
+        if(this.hiddenTreasures.size()==0 && this.visibleTreasures.size()==0){
+            this.dead=true;
+        }else{
+            this.dead=false;
+        }
+    }
+   private int computeGoldCoinsValue(ArrayList<Treasure> t){
+       int niveles=0 , monedas=0;
+       for( int i = 0 ; i <= t.size() ; i++ ){
+           monedas+=t.get( i ).getGoldCoins();
+        }
+       niveles=(int)monedas/1000;
+       return niveles;
+   }
 //    private boolean canIBuyLevels(float l){}
     
     
@@ -98,7 +120,13 @@ public class Player {
     public void discardVisibleTreasure(Treasure t){}
     public void discardHiddenTreasure(Treasure t){}
 //    public boolean buyLevels(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){}
-//    public boolean validState(){}
+    public boolean validState(){
+        if(this.pendingBadStuff.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 //    public boolean initTreasures(){}
 //    public boolean hasVisibleTreasures(){}
     public int getLevels(){
