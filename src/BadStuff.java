@@ -40,7 +40,13 @@ public class BadStuff {
         this.specificVisibleTreasures=(ArrayList<TreasureKind>) bc.specificVisibleTreasures.clone();
     }
     
-//    public boolean isEmpty(){}
+    public boolean isEmpty(){
+        if(this.text.equals("") && this.levels==0 && this.nHiddenTreasures==0 && this.nVisibleTreasures==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 //    public boolean kills(){}
     
     //Consultores
