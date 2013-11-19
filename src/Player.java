@@ -76,7 +76,7 @@ public class Player {
              if(visibleTreasures.get( i ).getType().toString().equals("necklace")){
                  collar=visibleTreasures.get( i );
                  visibleTreasures.remove(i);
-                 //falta pasar a BadStuff
+                 //falta pasar a BadStuff s
                  
              }
         }
