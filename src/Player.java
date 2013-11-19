@@ -67,11 +67,15 @@ public class Player {
     }
     
     private void incrementLevels(int l){
-        this.level+=l;
+        if (this.level<=4){
+            this.level+=l;
+        }
     }
     
     private void decrementLevels(int l){
-        this.level-=l;
+        if (this.level>=1){
+            this.level-=l;
+        }
     }
 
     private void discardNecklaceVisible(){
