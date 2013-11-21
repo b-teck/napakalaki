@@ -114,10 +114,10 @@ public class Player {
        return niveles;
    }
    private boolean canIBuyLevels(int l){
-       if(getLevels()==4){
-           return false;
-       }else{
+       if(getLevels()+l<4){
            return true;
+       }else{
+           return false;
        }
    }
     
@@ -162,9 +162,15 @@ public class Player {
             for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
                 nivel+=visibleTreasures.get( i ).getMaxBonus();
             }
+            for( int i = 0 ; i < hiddenTreasures.size() ; i++ ){
+                nivel+=hiddenTreasures.get( i ).getMaxBonus();
+            }
          }else{
             for( int i = 0 ; i < visibleTreasures.size() ; i++ ){
-                nivel+=visibleTreasures.get( i ).getMaxBonus();
+                nivel+=visibleTreasures.get( i ).getMinBonus();
+            }
+            for( int i = 0 ; i < hiddenTreasures.size() ; i++ ){
+                nivel+=hiddenTreasures.get( i ).getMinBonus();
             }
          }
          nivel+=this.level;
