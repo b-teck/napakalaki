@@ -5,6 +5,7 @@
 package Napakalaki;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class CardDealer {
     private static final CardDealer instance=new CardDealer();
@@ -13,8 +14,11 @@ public class CardDealer {
     private ArrayList<Monster> usedMonsters=new ArrayList();
     private ArrayList<Treasure> unusedTreasures=new ArrayList();
     private ArrayList<Treasure> usedTreasures=new ArrayList();
+    
+    //Mazo de tesoros:
+    
     private void initTreasureCardDeck(){
-        //MAzo de tesoros
+        
         //Si mi amo
     Treasure Si_mi_amo=new Treasure("¡Si mi amo!",0,4,7,TreasureKind.helmet);
     unusedTreasures.add(Si_mi_amo);
@@ -30,7 +34,7 @@ public class CardDealer {
         //Botas de lluvia acida
     Treasure Botas=new Treasure("Botas de Lluvia Acida",800,1,1,TreasureKind.bothHand);
     unusedTreasures.add(Botas);
-        //cASCO MINERO
+        //Casco Minero
     Treasure C_minero=new Treasure("Casco Minero",400,2,4,TreasureKind.helmet);
     unusedTreasures.add(C_minero);
         //Ametralladora thompson
@@ -63,10 +67,10 @@ public class CardDealer {
         //Escopeta
     Treasure Escopeta=new Treasure("Escopeta de 3 cañones",700,4,6,TreasureKind.bothHand);
     unusedTreasures.add(Escopeta);
-        //GArabato mistico
+        //Garabato mistico
     Treasure Garabato=new Treasure("Garabato Mistico",300,2,2,TreasureKind.oneHand);
     unusedTreasures.add(Garabato);
-        //La fuerza d eMR:T
+        //La fuerza de Mr.T
     Treasure T=new Treasure("La fuerza de Mr.T",1000,0,0,TreasureKind.necklace);
     unusedTreasures.add(T);
         //La rebeca metalica
@@ -117,6 +121,7 @@ public class CardDealer {
     }
    
     //Mazo de monstruos
+    
     private void initMonsterCardDeck(){
        
         //Byakhees
@@ -226,7 +231,7 @@ public class CardDealer {
         unusedMonsters.add(PollipolipoVolante);
         
         //Yskhtihyssg-Goth
-         BadStuff GothBs=new BadStuff("No le hace gracia que pronuncien mal su nombre. Estas muerto",true);
+        BadStuff GothBs=new BadStuff("No le hace gracia que pronuncien mal su nombre. Estas muerto",true);
         Prize GothPr=new Prize(3,1);
         Monster YskhtihyssgGoth =new Monster("Yskhtihyssg-Goth",12,GothBs,GothPr);
         unusedMonsters.add(YskhtihyssgGoth);
@@ -268,9 +273,9 @@ public class CardDealer {
          
         
         //Bicefalo
-         ArrayList<TreasureKind> tvpBicefalo= new ArrayList();
-       tvpBicefalo.add(TreasureKind.oneHand);
-       tvpBicefalo.add(TreasureKind.oneHand);
+        ArrayList<TreasureKind> tvpBicefalo= new ArrayList();
+        tvpBicefalo.add(TreasureKind.oneHand);
+        tvpBicefalo.add(TreasureKind.oneHand);
        
         
         tvpBicefalo.add(TreasureKind.bothHand);
@@ -283,16 +288,42 @@ public class CardDealer {
         
         System.out.println("LA MAZMORRA DE LOS MONSTRUOS\n");
     }
-    private void shuffleTreasures(){}
-    private void shuffleMonsters(){}    
-    //Dependencias
-    
+    private void shuffleTreasures(){
+        Collections.shuffle(unusedTreasures);
+    }
+        
+    private void shuffleMonsters(){
+        Collections.shuffle(unusedMonsters);
+    }    
+
         
     public static CardDealer getInstance(){
         return instance;
     }
-//    public Treasure nextTreasure(){}
-//    public Monster nextMonster(){}
+    
+    public Treasure nextTreasure(){
+        if(unusedTreasures.isEmpty()){
+             unusedTreasures = new ArrayList(usedTreasures);
+             usedTreasures.clear();
+             Collections.shuffle(unusedTreasures);
+        }
+        Treasure tesoro = unusedTreasures.get(unusedTreasures.size()-1);
+        unusedTreasures.remove(tesoro);
+        return tesoro;
+    }
+    
+    public Monster nextMonster(){
+         if(unusedMonsters.isEmpty()){
+            unusedMonsters = new ArrayList(usedMonsters);
+            usedMonsters.clear();
+            Collections.shuffle(unusedMonsters);
+        }
+        Monster monsters = unusedMonsters.get(unusedMonsters.size()-1);
+        usedMonsters.add(monsters);
+        unusedMonsters.remove(monsters);
+        return monsters;
+    }
+    
     public void giveTreasureBack(Treasure t){}
     public void giveMonsterBack(Monster m){}
     public void initCards(){}
