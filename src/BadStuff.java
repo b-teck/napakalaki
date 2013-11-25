@@ -74,8 +74,21 @@ public class BadStuff {
      public ArrayList<TreasureKind> getSpecificVisibleTreasures(){
         return this.specificVisibleTreasures;
     }
-    public void substractVisibleTreasure(Treasure t){}
-    public void substractHiddenTreasure(Treasure t){}
+    public void substractVisibleTreasure(Treasure t){
+        for(int i=0;i<=this.specificVisibleTreasures.size();i++){
+            if(this.specificVisibleTreasures.get(i).equals(t)){
+                this.specificVisibleTreasures.get(i).remove();
+            }
+    }
+    }
+    public void substractHiddenTreasure(Treasure t){
+        for(int i=0;i<=this.specificHiddenTreasures.size();i++){
+            if(this.specificHiddenTreasures.get(i).equals(t)){
+                this.specificHiddenTreasures.get(i).remove();
+            }
+    }
+        
+    }
     //public BadStuff adjustToFitTreasureList(ArrayList<Treasure> v,ArrayList<Treasure> h){}
 
     
