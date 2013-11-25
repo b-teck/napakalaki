@@ -47,6 +47,12 @@ public class BadStuff {
             return false;
         }
     }
+    public boolean MyBadStuffisDead(){
+         if( death == true)
+             return true;
+         else
+             return false;
+}
 //    public boolean kills(){}
     
     //Consultores
