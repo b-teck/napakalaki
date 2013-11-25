@@ -60,13 +60,14 @@ public class Napakalaki {
     public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
     public void makeTreasuresVisibles(ArrayList<Treasure> treasures){}
     //public boolean buyLevels(ArrayList<Treasure> visible,ArrayList<Treasure> hidden){}
-    public void initGame(ArrayList<String> jugadores){
+    public void initGame(String [] jugadores){
         
         
         String noms[];
         noms = new String[3];
-        noms[0]="Pepe";
-        noms[1]="";
+        for(int i =0;i<=jugadores.length;i++){
+            noms[i]=jugadores[i];
+        }
     }
 //    public Player getCurrentPlayer(){}
 //    public Monster getCurrentMonster(){}
