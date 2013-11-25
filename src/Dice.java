@@ -2,22 +2,24 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Napakalaki;
 
+package Napakalaki;
+import java.util.*;
 
 public class Dice {
-    private static final Dice instance=new Dice();
+    private static final Dice instance=null;
     private Dice(){}
     public static Dice getInstance(){
         return instance;
     }
-    public Random nextNumber(){
+    public int nextNumber(){
     
-       Random dado =new Random();
+       
+        int dado = (int)Math.floor(Math.random()*6+1);
        
        return dado;
     }
-    //public int nextNumber(){}
+
         
     
 }

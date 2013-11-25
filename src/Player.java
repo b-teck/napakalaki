@@ -16,6 +16,30 @@ public class Player {
     private ArrayList<Treasure> visibleTreasures=new ArrayList();
     private BadStuff pendingBadStuff;
 
+    public boolean isDead() {
+        return dead;
+    }
+
+    public void setDead(boolean dead) {
+        this.dead = dead;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+    
     public Player(String name){
             this.name=name;
     }
@@ -95,7 +119,19 @@ public class Player {
     }
     
     private void die(){
-        this.dead=true;
+        this.setLevel(1);
+        CardDealer dealer=null;
+        dealer.getInstance();
+        for( int i = 0 ; i <= this.visibleTreasures.size() ; i++ ){
+           dealer.giveTreasureBack(this.visibleTreasures.get(i));
+        }
+        this.visibleTreasures.clear();
+        for( int i = 0 ; i <= this.hiddenTreasures.size() ; i++ ){
+           dealer.giveTreasureBack(this.hiddenTreasures.get(i));
+        }
+        this.hiddenTreasures.clear();
+        this.dieIfNoTreasures();
+        
     }
     
     private void dieIfNoTreasures(){
@@ -124,7 +160,9 @@ public class Player {
     
     public void applyPrize(Prize p){}
     //public CombatResult combat(Monster m){}
-    public void applyBadStuff(BadStuff bad){}
+    public void applyBadStuff(BadStuff bad){
+        
+    }
 //    public boolean makeTreasureVisible(Treasure t){}
 //    public boolean canMakeTreasureVisible(Treasure t){}
     public void discardVisibleTreasure(Treasure t){}
@@ -137,7 +175,42 @@ public class Player {
             return false;
         }
     }
-//    public boolean initTreasures(){}
+    public void initTreasures(){
+        CardDealer dealer = null;
+        dealer.getInstance();
+        Dice dice =null;
+        dice.getInstance();
+        
+        if(this.isDeath()){
+            this.bringToLive();
+        }
+        
+        Treasure tesoro;
+        
+        int number=dice.nextNumber();
+        int i=0;
+        if(number==1){
+            
+        }else{
+            if(number>1 && number<6){
+                do{
+                    tesoro=dealer.nextTreasure();
+                    this.hiddenTreasures.add(tesoro);
+                    i++;
+                }while(i<=2);
+                
+            }else{
+                if(number==6){
+                    
+                    do{
+                        tesoro=dealer.nextTreasure();
+                        this.hiddenTreasures.add(tesoro);
+                        i++;
+                    }while(i<=3);
+                }
+            }
+        }
+    }
     public boolean hasVisibleTreasures(){
         if(this.visibleTreasures.size()>0){
             return true;

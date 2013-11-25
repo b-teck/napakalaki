@@ -43,3 +43,4 @@ public class Monster {
 //    public int getTreasuresGained(){}
     
 }
+}

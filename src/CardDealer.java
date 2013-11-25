@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CardDealer {
-    private static final CardDealer instance=new CardDealer();
+    private static final CardDealer instance=null;
     private CardDealer(){}
     private ArrayList<Monster> unusedMonsters=new ArrayList();
     private ArrayList<Monster> usedMonsters=new ArrayList();
     private ArrayList<Treasure> unusedTreasures=new ArrayList();
     private ArrayList<Treasure> usedTreasures=new ArrayList();
+    
+   
     
     //Mazo de tesoros:
     
