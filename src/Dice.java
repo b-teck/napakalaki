@@ -11,6 +11,12 @@ public class Dice {
     public static Dice getInstance(){
         return instance;
     }
+    public Random nextNumber(){
+    
+       Random dado =new Random();
+       
+       return dado;
+    }
     //public int nextNumber(){}
         
     
