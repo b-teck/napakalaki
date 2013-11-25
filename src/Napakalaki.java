@@ -65,8 +65,22 @@ public class Napakalaki {
 //    public Monster getCurrentMonster(){}
 //    public boolean canMakeTreasureVisible(Treasure t){}
 //    public void nextTurn(){}
-//    public boolean nextTurnAllowed(){}
-//    public boolean endOfGame(CombatResult result){}
+    public boolean nextTurnAllowed(Player jugador){
+        if(jugador.validState()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public boolean endOfGame(CombatResult result){
+        if(result == CombatResult.WinAndWinGame){
+            return true;
+        }else{
+            return false;
+        }
+            
+        
+    }
 //    
     
     
