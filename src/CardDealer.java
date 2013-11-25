@@ -324,8 +324,12 @@ public class CardDealer {
         return monsters;
     }
     
-    public void giveTreasureBack(Treasure t){}
-    public void giveMonsterBack(Monster m){}
+    public void giveTreasureBack(Treasure t){
+        this.usedTreasures.add(t);
+    }
+    public void giveMonsterBack(Monster m){
+        this.usedMonsters.add(m);
+    }
     public void initCards(){}
     
 }
