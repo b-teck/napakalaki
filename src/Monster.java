@@ -33,6 +33,12 @@ public class Monster {
     public Prize getPr(){
             return this.p;
     }
+    public boolean kills(){
+       
+         if( bs.getDeath() == true)
+             return true;
+         else
+             return false;
 //    public int getLevelsGained(){}
 //    public int getTreasuresGained(){}
     
