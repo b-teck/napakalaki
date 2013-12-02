@@ -3,6 +3,8 @@ package Napakalaki;
 
 import java.util.ArrayList;
 import java.util.Random;
+import Napakalaki.TreasureKind;
+import Napakalaki.CombatResult;
 
 
 
@@ -54,12 +56,38 @@ public class Napakalaki {
         return monsters.get(indexCurrentMonster);
     }
 
-
-    //public CombatResult developCombat(){}
-    public void discardVisibleTreasures(ArrayList<Treasure> treasures){}
-    public void discardHiddenTreasures(ArrayList<Treasure> treasures){}
-    public void makeTreasuresVisibles(ArrayList<Treasure> treasures){}
-    //public boolean buyLevels(ArrayList<Treasure> visible,ArrayList<Treasure> hidden){}
+    public CombatResult developCombat(){
+        CombatResult result = currentPlayer.combat(currentMonster);
+        return result;
+    }
+    
+    public void discardVisibleTreasures(ArrayList<Treasure> treasures){
+        Treasure tesoroVi;
+        for(int i=0;i<treasures.size();i++){
+           tesoroVi=treasures.get(i);
+           currentPlayer.discardVisibleTreasure(tesoroVi);
+        }
+    }
+    
+    public void discardHiddenTreasures(ArrayList<Treasure> treasures){
+        Treasure tesoroHi;
+        for(int i = 0; i<treasures.size(); i++){
+            tesoroHi = treasures.get(i);
+            currentPlayer.discardHiddenTreasure(tesoroHi);
+        }
+    }
+    
+    public void makeTreasuresVisibles(ArrayList<Treasure> treasures){
+            for(int i=1;i<=treasures.size();i++){
+            Treasure tesoro=treasures.get(i);
+            currentPlayer.makeTreasureVisible(tesoro);
+        }
+    }
+    
+    public boolean buyLevels(ArrayList<Treasure> visible,ArrayList<Treasure> hidden){
+        boolean comprar = currentPlayer.buyLevels(visible, hidden);
+        return comprar;
+    }
     public void initGame(String [] jugadores){
         dealer.initCards();
         
@@ -77,6 +105,7 @@ public class Napakalaki {
     }
 
 //    public boolean canMakeTreasureVisible(Treasure t){}
+
     public void nextTurn(){
         boolean stateOK = this.nextTurnAllowed();
         
