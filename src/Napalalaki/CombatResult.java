@@ -4,10 +4,6 @@
  */
 package Napalalaki;
 
-/**
- *
- * @author hugobarzano
- */
 public enum CombatResult {WinAndWinGame,Win,Lose,LoseAndScape,LoseAndDie
     
 }

@@ -4,10 +4,6 @@
  */
 package Napalalaki;
 
-/**
- *
- * @author hugobarzano
- */
 public class Prize {
     //Atributos
     private int treasures;

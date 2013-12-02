@@ -4,10 +4,7 @@
  */
 package Napalalaki;
 
-/**
- *
- * @author hugobarzano
- */
+
 public enum TreasureKind {armor,oneHand,bothHand,helmet,shoe,necklace
     
 }
