@@ -158,9 +158,16 @@ public class Player {
    }
     
     
-    public void applyPrize(Prize p){}
+    public void applyPrize(Prize p){
+        
+        
+    }
     //public CombatResult combat(Monster m){}
     public void applyBadStuff(BadStuff bad){
+        int nLevels=this.getLevels();
+        this.decrementLevels(nLevels);
+        this.pendingBadStuff=bad.adjustToFitTreasureList(hiddenTreasures, hiddenTreasures);
+        this.setPendingBadStuff(this.pendingBadStuff);
         
     }
 //    public boolean makeTreasureVisible(Treasure t){}

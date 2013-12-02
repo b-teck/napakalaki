@@ -14,7 +14,7 @@ public class BadStuff {
     private boolean death;
     private ArrayList<TreasureKind>specificHiddenTreasures=new ArrayList();
     private ArrayList<TreasureKind>specificVisibleTreasures=new ArrayList();
-    //Contrtructore
+
     public BadStuff(String text,int levels,int nVisible,int nHidden){
         this.text=text;
         this.levels=levels;
@@ -89,7 +89,10 @@ public class BadStuff {
     }
         
     }
-    //public BadStuff adjustToFitTreasureList(ArrayList<Treasure> v,ArrayList<Treasure> h){}
+    public BadStuff adjustToFitTreasureList(ArrayList<Treasure> v,ArrayList<Treasure> h){
+        BadStuff bd=null;
+        return bd;
+    }
 
     
     public boolean getDeath(){
