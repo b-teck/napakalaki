@@ -69,15 +69,34 @@ public class Napakalaki {
             noms[i]=jugadores[i];
         }
     }
-//    public Player getCurrentPlayer(){}
-//    public Monster getCurrentMonster(){}
+
 //    public boolean canMakeTreasureVisible(Treasure t){}
-//    public void nextTurn(){}
+    public void nextTurn(){
+        boolean stateOK = this.nextTurnAllowed();
+        
+        if (stateOK){
+            currentMonster = dealer.nextMonster();
+            currentPlayer = this.nextPlayer();
+            boolean dead = currentPlayer.isDead();
+            
+            if (dead){
+                currentPlayer.initTreasures();
+            }
+        }
+        
+        return stateOK;
+    }
+    
+    public void initGame(){
+        dealer.initCards();
+        
+    }
+    
     public boolean nextTurnAllowed(Player jugador){
-        if(jugador.validState()){
+        if(currentPlayer == null){
             return true;
         }else{
-            return false;
+            return currentPlayer.validState();
         }
     }
     public boolean endOfGame(CombatResult result){
@@ -89,7 +108,6 @@ public class Napakalaki {
             
         
     }
-//    
     
     
     
