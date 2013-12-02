@@ -63,7 +63,7 @@ public class Napakalaki {
     public void initGame(String [] jugadores){
         dealer.initCards();
         
-        if(jugadores.size() < 3 || jugadores.size() > 4)
+        if(jugadores.length < 3 || jugadores.length > 4)
             throw new Error("Numero de jugadores incorrecto");
         
         initPlayers(jugadores);
