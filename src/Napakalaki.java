@@ -62,12 +62,17 @@ public class Napakalaki {
     //public boolean buyLevels(ArrayList<Treasure> visible,ArrayList<Treasure> hidden){}
     public void initGame(String [] jugadores){
         dealer.initCards();
-        jugadores.nexTurn();
         
-        String noms[];
+        if(jugadores.size() < 3 || jugadores.size() > 4)
+            throw new Error("Numero de jugadores incorrecto");
+        
+        initPlayers(jugadores);
+        this.nextTurn();
+        
+        /*String noms[];
         noms = new String[3];
         for(int i =0;i<=jugadores.length;i++){
-            noms[i]=jugadores[i];
+            noms[i]=jugadores[i];*/
         }
     }
 
