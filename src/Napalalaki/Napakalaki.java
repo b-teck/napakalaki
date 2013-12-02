@@ -38,7 +38,7 @@ public class Napakalaki {
         }
         nJugadores=names.length;
     }
-    private void nextPlayer(){
+    private Player nextPlayer(){
         if(currentPlayer==null){
             Random r =new Random();
             indexCurrentPlayer=r.nextInt(nJugadores);
@@ -46,7 +46,9 @@ public class Napakalaki {
         }else{
             indexCurrentPlayer=(indexCurrentPlayer+1)%nJugadores;
         }
+        return currentPlayer;
     }
+    
     public Player getCurrentPlayer(){
         return players.get(indexCurrentPlayer);
     }
@@ -72,9 +74,26 @@ public class Napakalaki {
 //    public Player getCurrentPlayer(){}
 //    public Monster getCurrentMonster(){}
 //    public boolean canMakeTreasureVisible(Treasure t){}
-//    public void nextTurn(){}
-    public boolean nextTurnAllowed(Player jugador){
-        if(jugador.validState()){
+    public boolean nextTurn(){
+       
+        if(nextTurnAllowed()){
+            currentMonster=dealer.nextMonster();
+            currentPlayer=nextPlayer();
+            
+            if(currentPlayer.isDead()){
+                currentPlayer.initTreasures();
+            }
+            
+            return true;     
+        }else{
+            return false;
+        }
+        
+                
+    }
+    
+    public boolean nextTurnAllowed(){
+        if(getCurrentPlayer().validState()){
             return true;
         }else{
             return false;

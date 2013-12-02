@@ -39,8 +39,12 @@ public class Monster {
              return true;
          else
              return false;
-//    public int getLevelsGained(){}
-//    public int getTreasuresGained(){}
+    }
     
-}
+    public int getLevelsGained(){
+        return p.getTreasures();
+    }
+    
+    
+
 }
