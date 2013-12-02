@@ -1,10 +1,8 @@
-package Napalalaki;
+package Napakalaki;
 
 
 import java.util.ArrayList;
 import java.util.Random;
-import Napakalaki.TreasureKind;
-import Napakalaki.CombatResult;
 
 
 
@@ -40,7 +38,7 @@ public class Napakalaki {
         }
         nJugadores=names.length;
     }
-    private Player nextPlayer(){
+    private void nextPlayer(){
         if(currentPlayer==null){
             Random r =new Random();
             indexCurrentPlayer=r.nextInt(nJugadores);
@@ -48,9 +46,7 @@ public class Napakalaki {
         }else{
             indexCurrentPlayer=(indexCurrentPlayer+1)%nJugadores;
         }
-        return currentPlayer;
     }
-    
     public Player getCurrentPlayer(){
         return players.get(indexCurrentPlayer);
     }
@@ -90,7 +86,6 @@ public class Napakalaki {
         boolean comprar = currentPlayer.buyLevels(visible, hidden);
         return comprar;
     }
-    
     public void initGame(String [] jugadores){
         dealer.initCards();
         
@@ -109,33 +104,29 @@ public class Napakalaki {
 
 //    public boolean canMakeTreasureVisible(Treasure t){}
 
-    public boolean nextTurn(){
-       
-        if(nextTurnAllowed()){
-            currentMonster=dealer.nextMonster();
-            currentPlayer=nextPlayer();
+    public void nextTurn(){
+        boolean stateOK = this.nextTurnAllowed();
+        
+        if (stateOK){
+            currentMonster = dealer.nextMonster();
+            currentPlayer = this.nextPlayer();
+            boolean dead = currentPlayer.isDead();
             
-            if(currentPlayer.isDead()){
+            if (dead){
                 currentPlayer.initTreasures();
             }
-            
-            return true;     
-        }else{
-            return false;
         }
         
-                
+        return stateOK;
     }
     
-    public boolean nextTurnAllowed(){
-        if(getCurrentPlayer().validState()){
-
+    public boolean nextTurnAllowed(Player jugador){
+        if(currentPlayer == null){
             return true;
         }else{
             return currentPlayer.validState();
         }
     }
-
     public boolean endOfGame(CombatResult result){
         if(result == CombatResult.WinAndWinGame){
             return true;
@@ -148,4 +139,4 @@ public class Napakalaki {
     
     
     
-
+}
