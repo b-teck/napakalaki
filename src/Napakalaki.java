@@ -61,7 +61,8 @@ public class Napakalaki {
     public void makeTreasuresVisibles(ArrayList<Treasure> treasures){}
     //public boolean buyLevels(ArrayList<Treasure> visible,ArrayList<Treasure> hidden){}
     public void initGame(String [] jugadores){
-        
+        dealer.initCards();
+        jugadores.nexTurn();
         
         String noms[];
         noms = new String[3];
@@ -85,11 +86,6 @@ public class Napakalaki {
         }
         
         return stateOK;
-    }
-    
-    public void initGame(){
-        dealer.initCards();
-        
     }
     
     public boolean nextTurnAllowed(Player jugador){
