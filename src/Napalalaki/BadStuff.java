@@ -75,6 +75,7 @@ public class BadStuff {
         return this.specificVisibleTreasures;
     }
     public void substractVisibleTreasure(Treasure t){
+        
         for(int i=0;i<=this.specificVisibleTreasures.size();i++){
             if(this.specificVisibleTreasures.get(i).equals(t)){
                 this.specificVisibleTreasures.get(i).remove();
