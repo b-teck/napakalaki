@@ -31,13 +31,13 @@ public class BadStuff {
             this.specificVisibleTreasures=(ArrayList<TreasureKind>) tVisible.clone();
             this.specificHiddenTreasures=(ArrayList<TreasureKind>) tHidden.clone();
     }
-    public BadStuff(BadStuff bc){
-        this.text=bc.getText();
-        this.levels=bc.getLevels();
-        this.nHiddenTreasures=bc.getNHiddenTreasures();
-        this.nVisibleTreasures=bc.getNVisibleTreasures();
-        this.specificHiddenTreasures=(ArrayList<TreasureKind>) bc.specificHiddenTreasures.clone();
-        this.specificVisibleTreasures=(ArrayList<TreasureKind>) bc.specificVisibleTreasures.clone();
+    public BadStuff(BadStuff bad){
+        this.text=bad.getText();
+        this.levels=bad.getLevels();
+        this.nHiddenTreasures=bad.getNHiddenTreasures();
+        this.nVisibleTreasures=bad.getNVisibleTreasures();
+        this.specificHiddenTreasures=(ArrayList<TreasureKind>) bad.specificHiddenTreasures.clone();
+        this.specificVisibleTreasures=(ArrayList<TreasureKind>) bad.specificVisibleTreasures.clone();
     }
     
     public boolean isEmpty(){
@@ -89,9 +89,23 @@ public class BadStuff {
     }
         
     }
+    
     public BadStuff adjustToFitTreasureList(ArrayList<Treasure> v,ArrayList<Treasure> h){
-        BadStuff bd=null;
-        return bd;
+        BadStuff badstuff=new BadStuff(null,0,new ArrayList(),new ArrayList());
+        
+        for(int i=0;i<specificHiddenTreasures.size();i++){
+            for(int j=0;j<h.size();j++){
+            if(specificHiddenTreasures.get(i)==h.get(j).getType())
+                badstuff.specificHiddenTreasures.add(h.get(j).getType());
+            }
+        }   
+        for(int z=0;z<specificVisibleTreasures.size();z++){
+            for(int j=0;j<v.size();j++){
+                if(specificVisibleTreasures.get(z)==v.get(z).getType())
+                    badstuff.specificVisibleTreasures.add(v.get(j).getType());
+            }
+        }    
+        return badstuff;
     }
 
     
