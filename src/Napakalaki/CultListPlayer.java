@@ -24,7 +24,7 @@ public class CultListPlayer extends Player {
     }
     
     public boolean shouldConvert(){
-        return true;
+        return false;
     }
     public int getOponentLevel(Monster m){
         return 187878;
