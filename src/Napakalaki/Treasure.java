@@ -35,11 +35,11 @@ public class Treasure implements Card{
     }
     
     public int getBasicValue(){
-        return 1;
+        return this.getMinBonus();
     }
     
     public int getSpecialValue(){
-        return 1;
+        return this.getMaxBonus();
     }
    
 }

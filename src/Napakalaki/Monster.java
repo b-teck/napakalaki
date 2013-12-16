@@ -5,17 +5,19 @@
 package Napakalaki;
 
 
-public class Monster extends Card{
+public class Monster implements Card{
     private String name;
     private int combatLevel;
     private Prize p;
     private BadStuff bs;
+    private int levelChangeAgainstCultistPlayer;
     //Constructor
-    public Monster(String name,int level,BadStuff bc, Prize price){
+    public Monster(String name,int level,BadStuff bc, Prize price,int levelC){
             this.name=name;
             this.combatLevel=level;
             this.bs= new BadStuff(bc);
             this.p=new Prize(price);
+            this.levelChangeAgainstCultistPlayer=levelC;
     }
     
     //Consultores
@@ -25,6 +27,12 @@ public class Monster extends Card{
     public int getCombatLevel(){
         return this.combatLevel;
     }
+
+    public int getLevelChangeAgainstCultistPlayer() {
+        return levelChangeAgainstCultistPlayer;
+    }
+
+    
     public String toString(){
             return name + "\n\n Nivel de combate = " + Integer.toString(combatLevel)+ "\nBadStuff= "+bs.toString()+"\nPrize= "+ p.toString(); 
     }
@@ -51,7 +59,7 @@ public class Monster extends Card{
     }
     
     public int getSpecialValue(){
-        return 1;
+        return this.getLevelsGained()+this.getLevelChangeAgainstCultistPlayer();
     }
 
 }
