@@ -358,6 +358,13 @@ public int howManyVisibleTreasures(TreasureKind tKind){
         }
     return tesoros;
 }
+public boolean shouldConvert(){
+    if(Dice.getInstance().nextNumber()==6)
+        return true;
+    else
+        return false;
+}
+
 
 }
     
