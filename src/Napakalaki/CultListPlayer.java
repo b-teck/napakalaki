@@ -10,11 +10,11 @@ package Napakalaki;
  *
  * @author juanfra
  */
-public class CultListPlayer extends Player {
+public class CultistPlayer extends Player {
     private int totalCultListPlayer = 0;
     private Cultist myCultist;
     
-    public CultListPlayer(Player p , Cultist c){
+    public CultistPlayer(Player p , Cultist c){
         super(p.getName());
         this.myCultist = c;
     }
@@ -32,7 +32,7 @@ public class CultListPlayer extends Player {
     public int computeGoldCoinsValue(Treasure [] t){
         return 1;
     }
-    public int getTotalCultListPlayers(){
+    public int getTotalCultistPlayers(){
         return 1;
     }
 }
