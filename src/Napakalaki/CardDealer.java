@@ -2,9 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Napakalaki;
-
-
+package Napalalaki;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,13 +14,16 @@ public class CardDealer {
     private ArrayList<Monster> usedMonsters=new ArrayList();
     private ArrayList<Treasure> unusedTreasures=new ArrayList();
     private ArrayList<Treasure> usedTreasures=new ArrayList();
-
-
-
+    private ArrayList<Cultist> unusedCultists = new ArrayList();
+    private ArrayList<Cultist> usedCultists = new ArrayList();
+    
+   
+   
+    
     //Mazo de tesoros:
-
+    
     private void initTreasureCardDeck(){
-
+        
         //Si mi amo
     Treasure Si_mi_amo=new Treasure("¡Si mi amo!",0,4,7,TreasureKind.helmet);
     unusedTreasures.add(Si_mi_amo);
@@ -119,15 +120,15 @@ public class CardDealer {
         //Varita de atizamiento
     Treasure Varita=new Treasure("Varita de atizamiento",400,3,4,TreasureKind.oneHand);
     unusedTreasures.add(Varita);
+        
 
-
-
+    
     }
-
+   
     //Mazo de monstruos
-
+    
     private void initMonsterCardDeck(){
-
+       
         //Byakhees
         ArrayList<TreasureKind> tvpByakhees = new ArrayList();
         tvpByakhees.add(TreasureKind.armor);
@@ -135,176 +136,260 @@ public class CardDealer {
         topByakhees.add(TreasureKind.armor);
         BadStuff ByakheesBs=new BadStuff("Pierdes tu armadura visible y otra oculta",0,tvpByakhees,topByakhees);
         Prize ByakheesPr=new Prize(2,1);
-        Monster ByakheesDeBonanza=new Monster("Byakhees de bonanza",8,ByakheesBs,ByakheesPr,0);
+        Monster ByakheesDeBonanza=new Monster("Byakhees de bonanza",8,ByakheesBs,ByakheesPr);
         unusedMonsters.add(ByakheesDeBonanza);
+        
         //Chibithulhu
+        
         ArrayList<TreasureKind> tvpChibithulhu = new ArrayList();
         tvpChibithulhu.add(TreasureKind.helmet);
         BadStuff ChibithulhuBs=new BadStuff("Embobados con el lindo primigenio,te descartas de tu casco visible",0,tvpChibithulhu,new ArrayList());
         Prize ChibithulhuPr=new Prize(1,1);
-        Monster Chibithulhu=new Monster("Chibithulhu",2,ChibithulhuBs,ChibithulhuPr,0);
+        Monster Chibithulhu=new Monster("Chibithulhu",2,ChibithulhuBs,ChibithulhuPr);
         unusedMonsters.add(Chibithulhu);
-
-
+        
+        
         //El supor de Dunwich
-
+        
         ArrayList<TreasureKind> tvpElSoporDeDunwich = new ArrayList();
         tvpElSoporDeDunwich.add(TreasureKind.shoe);
         BadStuff ElSoporDeDunwichBs=new BadStuff("El primordial bostezo contagioso, pierdes el calzado visible",0,tvpElSoporDeDunwich,new ArrayList());
         Prize ElSoporDeDunwichPr=new Prize(1,1);
-        Monster ElSoporDeDunwich =new Monster(" El Sopor De Dunwich ",2,ElSoporDeDunwichBs,ElSoporDeDunwichPr,0);
+        Monster ElSoporDeDunwich =new Monster(" El Sopor De Dunwich ",2,ElSoporDeDunwichBs,ElSoporDeDunwichPr);
         unusedMonsters.add(ElSoporDeDunwich);
-
+        
         //Angeles de la noche ibbicenca
-
+        
         ArrayList<TreasureKind> tvpAngeles = new ArrayList();
         tvpAngeles.add(TreasureKind.oneHand);
         ArrayList<TreasureKind> topAngeles = new ArrayList();
         topAngeles.add(TreasureKind.oneHand);
         BadStuff AngelesBs=new BadStuff("Te atrapan para llevarte de fiesta y te dejan caer en mitad del vuelo.Descarta una mano visible y una mano oculta",0,tvpAngeles,topAngeles);
         Prize AngelesPr=new Prize(4,1);
-        Monster AngelesDeLaNocheIbicenca =new Monster(" Ángeles de la noche Ibicenca ",14,AngelesBs,AngelesPr,0);
-       unusedMonsters.add(AngelesDeLaNocheIbicenca);
+        Monster AngelesDeLaNocheIbicenca =new Monster(" Ángeles de la noche Ibicenca ",14,AngelesBs,AngelesPr);
+        unusedMonsters.add(AngelesDeLaNocheIbicenca);
+        
         //El gorron en el umbral
-
+        
         BadStuff GorronBs=new BadStuff("Pierdes todos tus tesoros visibles",0,10,0);
         Prize GorronPr=new Prize(3,1);
-        Monster ElGorronEnElUmbral =new Monster(" El gorrón en el umbral ",10,GorronBs,GorronPr,0);
+        Monster ElGorronEnElUmbral =new Monster(" El gorrón en el umbral ",10,GorronBs,GorronPr);
         unusedMonsters.add(ElGorronEnElUmbral);
-
+        
         //H.P.Munchcraft
+        
         ArrayList<TreasureKind> tvpHpm = new ArrayList();
         tvpHpm.add(TreasureKind.armor);
         BadStuff HpmBs=new BadStuff("Pierdes la armadura visible",0,tvpHpm,new ArrayList());
         Prize HpmPr=new Prize(2,1);
-        Monster HpMunchcraft =new Monster("H.P. Munchcraft ",6,HpmBs,HpmPr,0);
+        Monster HpMunchcraft =new Monster("H.P. Munchcraft ",6,HpmBs,HpmPr);
         unusedMonsters.add(HpMunchcraft);
-
+        
         //Bichgooth
+        
         ArrayList<TreasureKind> tvpBichgooth = new ArrayList();
         tvpHpm.add(TreasureKind.armor);
         BadStuff BichgoothBs=new BadStuff("Sientes bichos bajo tu ropa, descarta tu armadura visible",0,tvpBichgooth,new ArrayList());
         Prize BichgoothPr=new Prize(1,1);
-        Monster Bichgooth =new Monster("Bichgooth",2,BichgoothBs,BichgoothPr,0);
+        Monster Bichgooth =new Monster("Bichgooth",2,BichgoothBs,BichgoothPr);
         unusedMonsters.add(Bichgooth);
-
-
+        
+        
         //EL Rey de Rosa
+        
         ArrayList<TreasureKind> tvpRey = new ArrayList();
         BadStuff ReyBs=new BadStuff("Pierdes 5 niveles y 3 tesoros visibles",5,3,0);
         Prize ReyPr=new Prize(4,2);
-        Monster ElReyDeRosa =new Monster("EL Rey De Rosa",13,ReyBs,ReyPr,0);
+        Monster ElReyDeRosa =new Monster("EL Rey De Rosa",13,ReyBs,ReyPr);
         unusedMonsters.add(ElReyDeRosa);
-
-
+        
+        
         //La que redacta en las tinieblas
+        
         BadStuff tinieblasBs=new BadStuff("Toses los pulmones y pierdes 2 niveles",2,0,0);
         Prize tinieblasPr=new Prize(1,1);
-        Monster LaQueRedactaLasTinieblas =new Monster("La Que Redacta Las Tinieblas",2,tinieblasBs,tinieblasPr,0);
+        Monster LaQueRedactaLasTinieblas =new Monster("La Que Redacta Las Tinieblas",2,tinieblasBs,tinieblasPr);
         unusedMonsters.add( LaQueRedactaLasTinieblas);
-
-
-        //Los hondos
+        
+        
+        //Los hondos 
+        
         BadStuff HondosBs=new BadStuff("Estos monstruos resultan bastante superficiales y "
                 + "te aburren mortalmente. Estas muerto",true);
         Prize HondosPr=new Prize(2,1);
-        Monster LosHondos =new Monster("Los Hondos",8,HondosBs,HondosPr,0);
+        Monster LosHondos =new Monster("Los Hondos",8,HondosBs,HondosPr);
         unusedMonsters.add(LosHondos);
-
+        
         //Semillas Cthulhu
-
-
+                 
         BadStuff SemillasBs=new BadStuff("Pierdes 2 niveles y 2 tesoros ocultos",2,0,2);
         Prize SemillasPr=new Prize(2,1);
-        Monster SemillasCthulhu =new Monster("Semillas Cthulhu",4,SemillasBs,SemillasPr,0);
+        Monster SemillasCthulhu =new Monster("Semillas Cthulhu",4,SemillasBs,SemillasPr);
         unusedMonsters.add(SemillasCthulhu);
-
+        
         //Dameargo
+        
         ArrayList<TreasureKind> tvpDame = new ArrayList();
         tvpDame.add(TreasureKind.oneHand);
         BadStuff DameBs=new BadStuff("Te intentas escaquear. Pierdes una mano visible",0,tvpDame,new ArrayList());
         Prize DamePr=new Prize(2,1);
-        Monster Dameargo =new Monster("Dameargo",1,DameBs,DamePr,0);
+        Monster Dameargo =new Monster("Dameargo",1,DameBs,DamePr);
         unusedMonsters.add(Dameargo);
-
+        
         //Pollipólipo volante
-
+        
         BadStuff PolliBs=new BadStuff("Da mucho asquito. Pierdes 3 niveles",3,new ArrayList(),new ArrayList());
         Prize PolliPr=new Prize(3,1);
-        Monster PollipolipoVolante =new Monster("Pollipólipo Volante",3,PolliBs,PolliPr,0);
+        Monster PollipolipoVolante =new Monster("Pollipólipo Volante",3,PolliBs,PolliPr);
         unusedMonsters.add(PollipolipoVolante);
-
+        
         //Yskhtihyssg-Goth
+        
         BadStuff GothBs=new BadStuff("No le hace gracia que pronuncien mal su nombre. Estas muerto",true);
         Prize GothPr=new Prize(3,1);
-        Monster YskhtihyssgGoth =new Monster("Yskhtihyssg-Goth",12,GothBs,GothPr,0);
+        Monster YskhtihyssgGoth =new Monster("Yskhtihyssg-Goth",12,GothBs,GothPr);
         unusedMonsters.add(YskhtihyssgGoth);
-
+        
         //Familia Feliz
+        
         BadStuff FamiliaBs=new BadStuff("La familia te atrapa. Estas muerto",true);
         Prize FamiliaPr=new Prize(4,1);
-        Monster FamiliaFeliz =new Monster("Familia Feliz",1,FamiliaBs,FamiliaPr,0);
+        Monster FamiliaFeliz =new Monster("Familia Feliz",1,FamiliaBs,FamiliaPr);
         unusedMonsters.add(FamiliaFeliz);
-
+        
         //Roboggoth
+        
         ArrayList<TreasureKind> tvpRoboggoth = new ArrayList();
         tvpRoboggoth.add(TreasureKind.bothHand);
         BadStuff RoboggothBs=new BadStuff("La quita directiva primaria te obliga a perder 2 niveles"
                 + "y un tesoro 2 manos visible",2,tvpRoboggoth,new ArrayList());
         Prize RoboggothPr=new Prize(2,1);
-        Monster Roboggoth =new Monster("Roboggoth",8,RoboggothBs,RoboggothPr,0);
+        Monster Roboggoth =new Monster("Roboggoth",8,RoboggothBs,RoboggothPr);
         unusedMonsters.add(Roboggoth);
-
+        
         //El Espia
-
+           
         ArrayList<TreasureKind> tvpEspia= new ArrayList();
         tvpEspia.add(TreasureKind.helmet);
         BadStuff EspiaBs=new BadStuff("Te asusta en la noche."
                 + "Pierdes un casco visible",0,tvpEspia,new ArrayList());
         Prize EspiaPr=new Prize(1,1);
-        Monster ElEspia =new Monster("El Espia",5,EspiaBs,EspiaPr,0);
+        Monster ElEspia =new Monster("El Espia",5,EspiaBs,EspiaPr);
         unusedMonsters.add(ElEspia);
-
+        
         //EL Lengua
-
-
+       
         BadStuff LenguasBs=new BadStuff("Menudo susto te llevas."
                 + "Pierdes 2 niveles y 5 tesoros visibles",2,5,0);
         Prize LenguasPr=new Prize(1,1);
-        Monster ElLenguas =new Monster("El Lenguas",20,LenguasBs,LenguasPr,0);
+        Monster ElLenguas =new Monster("El Lenguas",20,LenguasBs,LenguasPr);
         unusedMonsters.add(ElLenguas);
-
-
-
+        
+         
+        
         //Bicefalo
+        
         ArrayList<TreasureKind> tvpBicefalo= new ArrayList();
         tvpBicefalo.add(TreasureKind.oneHand);
         tvpBicefalo.add(TreasureKind.oneHand);
-
-
+       
+        
         tvpBicefalo.add(TreasureKind.bothHand);
-
+        
         BadStuff BicefaloBs=new BadStuff("Te faltan manos para tanta cabeza"
                 + "Pierdes 3 niveles y tus tesoros visibles de las manos",3,tvpBicefalo,new ArrayList());
         Prize BicefaloPr=new Prize(1,1);
-        Monster Bicefalo =new Monster("Bicefalo",20,BicefaloBs,BicefaloPr,0);
+        Monster Bicefalo =new Monster("Bicefalo",20,BicefaloBs,BicefaloPr);
         unusedMonsters.add(Bicefalo);
-
+        
+          //El Mal Indecible Impronunciable
+        
+        ArrayList<TreasureKind> tvpIndecible = new ArrayList();
+        tvpIndecible.add(TreasureKind.oneHand);
+        
+        BadStuff IndecibleBs=new BadStuff("Pierdes 1 mano visible",0,tvpIndecible,new ArrayList());
+        Prize IndeciblePr=new Prize(3,1);
+        Monster Indecible= new Monster("El mal indecible impronunciable",10,IndecibleBs,IndeciblePr);
+        unusedMonsters.add(Indecible);
+        
+        //Testigos Oculares
+        
+        BadStuff TestigosBs=new BadStuff ("Pierdes tus tesoros visibles. Jajaja.",0,10,0);
+        Prize TestigosPr= new Prize(2,1);
+        Monster Testigos = new Monster("Testigos oculares",6,TestigosBs,TestigosPr);
+        unusedMonsters.add(Testigos);
+        
+        //El gran Cthulhu
+        
+        BadStuff granCthulhuBs = new BadStuff("Hoy no es tu dia de suerte. Mueres.",true);
+        Prize granCthulhuPr = new Prize(2,5);
+        Monster granCthulhu = new Monster("El gran Cthulhu",20,granCthulhuBs,granCthulhuPr);
+        unusedMonsters.add(granCthulhu);
+        
+        //Serpiente Politico.
+        
+        BadStuff SerpienteBs= new BadStuff("Tu gobierno te recorta dos niveles.",2,0,0);
+        Prize SerpientePr = new Prize(2,1);
+        Monster Serpiente = new Monster("Serpiente Politico",8,SerpienteBs,SerpientePr);
+        unusedMonsters.add(Serpiente);
+        
+        //Felpuggoth
+        
+        ArrayList<TreasureKind> tvpFelpuggoth = new ArrayList();
+        tvpFelpuggoth.add(TreasureKind.helmet);
+        tvpFelpuggoth.add(TreasureKind.armor);
+        ArrayList<TreasureKind> topFelpuggoth = new ArrayList();
+        topFelpuggoth.add(TreasureKind.bothHand);
+        
+        BadStuff FelpuggothBs = new BadStuff ("Pierdes tu casco y tu armadura visible. Pierdes tus manos ocultas",0,tvpFelpuggoth,topFelpuggoth);
+        Prize FelpuggothPr = new Prize(1,1);
+        Monster Felpuggoth = new Monster("Felpuggoth",2,FelpuggothBs,FelpuggothPr);
+        unusedMonsters.add(Felpuggoth);
+        
+        //Shoggoth
+        
+        BadStuff ShoggothBs = new BadStuff("Pierdes dos niveles",2,0,0);
+        Prize ShoggothPr = new Prize(4,2);
+        Monster Shoggoth = new Monster("Shoggoth",16,ShoggothBs,ShoggothPr);
+        unusedMonsters.add(Shoggoth);
+       
+        //Lolitagooth
+        
+        BadStuff LolitagoothBs = new BadStuff("Pintalabios negro. Pierdes dos niveles.",2,0,0);
+        Prize LolitagoothPr = new Prize(1,1);
+        Monster Lolitagooth = new Monster("Lolitagooth",2,LolitagoothBs,LolitagoothPr);
+        unusedMonsters.add(Lolitagooth);
+        
         System.out.println("LA MAZMORRA DE LOS MONSTRUOS\n");
     }
+    
+    //Mazo sectarios.
+    private void initCultistCardDeck(){
+        unusedCultists.add(new Cultist("Sectario",1) {});
+        unusedCultists.add(new Cultist("Sectario",2) {});
+        unusedCultists.add(new Cultist("Sectario",1) {});
+        unusedCultists.add(new Cultist("Sectario",2) {});
+        unusedCultists.add(new Cultist("Sectario",1) {});
+        unusedCultists.add(new Cultist("Sectario",1) {});
+    
+        }
+
     private void shuffleTreasures(){
         Collections.shuffle(unusedTreasures);
     }
-
+        
     private void shuffleMonsters(){
         Collections.shuffle(unusedMonsters);
+    }    
+    
+    private void shuffleCultists(){
+        Collections.shuffle(unusedCultists);
     }
-
-
+        
     public static CardDealer getInstance(){
         return instance;
     }
-
+    
     public Treasure nextTreasure(){
         if(unusedTreasures.isEmpty()){
              unusedTreasures = new ArrayList(usedTreasures);
@@ -315,7 +400,7 @@ public class CardDealer {
         unusedTreasures.remove(tesoro);
         return tesoro;
     }
-
+    
     public Monster nextMonster(){
          if(unusedMonsters.isEmpty()){
             unusedMonsters = new ArrayList(usedMonsters);
@@ -327,7 +412,18 @@ public class CardDealer {
         unusedMonsters.remove(monsters);
         return monsters;
     }
-
+    
+      public Cultist nextCultist(){
+        if(unusedCultists.isEmpty()){
+            unusedCultists = new ArrayList(usedCultists);
+            usedCultists.clear();
+            Collections.shuffle(unusedCultists);
+        }
+        Cultist cultists = unusedCultists.get(unusedCultists.size()-1);
+        unusedCultists.remove(cultists);
+        return cultists;
+    }
+    
     public void giveTreasureBack(Treasure t){
         this.usedTreasures.add(t);
     }
@@ -335,8 +431,10 @@ public class CardDealer {
         this.usedMonsters.add(m);
     }
     public void initCards(){
-        this.initMonsterCardDeck();
         this.initTreasureCardDeck();
+        this.initMonsterCardDeck();
+        this.initCultistCardDeck();
     }
-
+    
 }
+
