@@ -11,6 +11,6 @@ package Napakalaki;
  * @author juanfra
  */
 public interface Card {
-    public int getBasicValue();
-    public int getSpecialValue();
+    int getBasicValue();
+    int getSpecialValue();
 }
