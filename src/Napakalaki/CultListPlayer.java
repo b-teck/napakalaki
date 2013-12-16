@@ -12,10 +12,10 @@ package Napakalaki;
  */
 public class CultListPlayer extends Player {
     private int totalCultListPlayer = 0;
-    CultList cultlist=null;
+    CultList myCultlist=null;
     
     public CultListPlayer(Player p , CultList c){
-        super.setLevel(p.getLevel());
+        super(p);
         super.setName(p.getName());
         this.cultList=c;
     }
@@ -26,5 +26,14 @@ public class CultListPlayer extends Player {
     
     public boolean shouldConvert(){
         return true;
+    }
+    public int getOponentLevel(Monster m){
+        return 1;
+    }
+    public int computeGoldCoinsValue(Treasure [] t){
+        return 1;
+    }
+    public int getTotalCultListPlayers(){
+        return 1;
     }
 }
