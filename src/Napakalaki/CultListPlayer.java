@@ -28,7 +28,7 @@ public class CultListPlayer extends Player {
         return true;
     }
     public int getOponentLevel(Monster m){
-        return 1;
+        return 187878;
     }
     public int computeGoldCoinsValue(Treasure [] t){
         return 1;
