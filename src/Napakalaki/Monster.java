@@ -47,7 +47,7 @@ public class Monster extends Card{
     }
     
     public int getBasicValue(){
-        return 1;
+        return this.getCombatLevel();
     }
     
     public int getSpecialValue(){
