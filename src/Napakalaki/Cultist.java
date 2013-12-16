@@ -9,8 +9,13 @@ abstract class Cultist implements Card{
         name=nombre;
         gainedLevels=niveles;
     }
-    
+    public int getGainedLevels(){
+        return gainedLevels;
+    }
     public int getBasicValue(){
-        return 1;
+        return getGainedLevels();
+    }
+    public int getSpecialValue(){
+        return getBasicValue()*CultistPlayer.getTotalCultistPlayers();
     }
 }
