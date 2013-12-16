@@ -12,16 +12,16 @@ package Napakalaki;
  */
 public class CultListPlayer extends Player {
     private int totalCultListPlayer = 0;
-    CultList myCultlist=null;
+    private Cultist myCultist;
     
-    public CultListPlayer(Player p , CultList c){
+    public CultListPlayer(Player p , Cultist c){
         super(p);
         super.setName(p.getName());
-        this.cultList=c;
+        this.myCultist = c;
     }
     
     public int getCombatLevel(){
-        return super.getCombatLevel();
+        return super.getCombatLevel()+this.myCultist.;
     }
     
     public boolean shouldConvert(){

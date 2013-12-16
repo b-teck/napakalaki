@@ -10,7 +10,7 @@ package Napalalaki;
  *
  * @author Luc-portatil
  */
-public class Cultist {
+public class Cultist implements Card{
     
     private String name;
     private int gainedLevels;
@@ -20,4 +20,7 @@ public class Cultist {
         gainedLevels=niveles;
     }
     
+    public int getBasicValue(){
+        
+    }
 }
