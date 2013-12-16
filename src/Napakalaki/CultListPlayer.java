@@ -15,13 +15,12 @@ public class CultListPlayer extends Player {
     private Cultist myCultist;
     
     public CultListPlayer(Player p , Cultist c){
-        super(p);
-        super.setName(p.getName());
+        super(p.getName());
         this.myCultist = c;
     }
     
     public int getCombatLevel(){
-        return super.getCombatLevel()+this.myCultist.;
+        return super.getCombatLevel()+this.myCultist.getBasicValue();
     }
     
     public boolean shouldConvert(){

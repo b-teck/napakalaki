@@ -5,8 +5,7 @@
 package Napakalaki;
 
 
-
-public class Monster {
+public class Monster extends Card{
     private String name;
     private int combatLevel;
     private Prize p;
@@ -47,6 +46,12 @@ public class Monster {
         return p.getTreasures();
     }
     
+    public int getBasicValue(){
+        return 1;
+    }
     
+    public int getSpecialValue(){
+        return 1;
+    }
 
 }

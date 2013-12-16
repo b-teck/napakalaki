@@ -4,8 +4,7 @@
  */
 package Napakalaki;
 
-
-public class Treasure {
+public class Treasure implements Card{
     private String name;
     private int goldCoins;
     private int minBonus;
@@ -34,4 +33,13 @@ public class Treasure {
         return type;
 
     }
+    
+    public int getBasicValue(){
+        return 1;
+    }
+    
+    public int getSpecialValue(){
+        return 1;
+    }
+   
 }
