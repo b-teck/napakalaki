@@ -4,6 +4,6 @@
  */
 package Napalalaki;
 
-public enum CombatResult {WinAndWinGame,Win,Lose,LoseAndScape,LoseAndDie
+public enum CombatResult {WinAndWinGame,Win,Lose,LoseAndScape,LoseAndDie,LoseAndConvert
     
 }
